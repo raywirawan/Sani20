@@ -5,34 +5,58 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_outline_black_24dp"
+            android:title="Profile" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_forecast"
+            android:icon="@drawable/ic_forecast"
+            android:title="Forecast" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_reminder"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+            android:title="Reminder" />
 
-    <item android:title="Communicate">
+        <item
+            android:id="@+id/nav_Price_Tracker"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Price tracker" />
+    </group>
+<group android:checkableBehavior="single">
+    <item android:title="Price Tracker" >
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_check_seed_price"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Check Seed Price" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_check_rice_price"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Check Rice Price" />
         </menu>
     </item>
+</group>
+    <group android:checkableBehavior="single">
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_help_black_24dp"
+                android:title="Help" />
+            <item
+                android:id="@+id/nav_quit"
+                android:icon="@drawable/ic_quit"
+                android:title="Quit" />
+        </menu>
+    </item>
+    </group>
 
 </menu>
