@@ -24,7 +24,6 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -73,17 +72,26 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_profile) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_reminder) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_Price_Tracker) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_check_rice_price) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_check_seed_price) {
+
+        }
+        else if (id == R.id.nav_settings) {
+
+        }
+        else if (id == R.id.nav_help) {
+
+        }
+        else if (id == R.id.nav_quit) {
 
         }
 
