@@ -18,12 +18,12 @@
             android:title="Forecast" />
         <item
             android:id="@+id/nav_reminder"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_date_range_black_24dp"
             android:title="Reminder" />
 
         <item
             android:id="@+id/nav_Price_Tracker"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_pricetrack"
             android:title="Price tracker" />
     </group>
 <group android:checkableBehavior="single">
@@ -31,11 +31,11 @@
         <menu>
             <item
                 android:id="@+id/nav_check_seed_price"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_pricetrack"
                 android:title="Check Seed Price" />
             <item
                 android:id="@+id/nav_check_rice_price"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_pricetrack"
                 android:title="Check Rice Price" />
         </menu>
     </item>
@@ -45,7 +45,7 @@
         <menu>
             <item
                 android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_settings_black_24dp"
                 android:title="Settings" />
             <item
                 android:id="@+id/nav_help"
