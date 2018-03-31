@@ -104,7 +104,7 @@ public class Home extends AppCompatActivity
 
         }
         else if (id == R.id.nav_quit) {
-            System.exit(0);
+            navigateToStart();
         }
 
         Fragment fragment = null;
@@ -121,7 +121,6 @@ public class Home extends AppCompatActivity
         return true;
     }
 
-
     private void displayFragment(Fragment fragment) {
         if (fragment != null) {
             //Manually displaying the first fragment - one time only
@@ -130,7 +129,6 @@ public class Home extends AppCompatActivity
             transaction.commit();
         }
     }
-
     public void navigateToHome() {
         Intent intent = new Intent(Home.this, Home.class);
         startActivity(intent);
@@ -145,6 +143,10 @@ public class Home extends AppCompatActivity
     }
     public void navigateToSettings() {
         Intent intent = new Intent(Home.this, SettingsPage.class);
+        startActivity(intent);
+    }
+    public void navigateToStart() {
+        Intent intent = new Intent(Home.this, StartingPage.class);
         startActivity(intent);
     }
 }

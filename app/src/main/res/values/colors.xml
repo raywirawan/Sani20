@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00563F</color>
-    <color name="colorPrimaryDark">#339071</color>
+    <color name="colorPrimary">#339071</color>
+    <color name="colorPrimaryDark">#00563F</color>
     <color name="colorAccent">#BDBDBD</color>
     <color name="btColor">#00563F</color>
     <!--reds-->
