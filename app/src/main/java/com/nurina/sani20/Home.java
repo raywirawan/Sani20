@@ -129,6 +129,7 @@ public class Home extends AppCompatActivity
             transaction.replace(R.id.container, fragment);
             transaction.commit();
         }
+    }
 
     public void navigateToHome() {
         Intent intent = new Intent(Home.this, Home.class);
