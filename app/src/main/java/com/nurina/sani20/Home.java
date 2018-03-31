@@ -121,7 +121,6 @@ public class Home extends AppCompatActivity
         return true;
     }
 
-
     private void displayFragment(Fragment fragment) {
         if (fragment != null) {
             //Manually displaying the first fragment - one time only
