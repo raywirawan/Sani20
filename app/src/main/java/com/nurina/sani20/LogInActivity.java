@@ -17,19 +17,14 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         buttonForHome= findViewById(R.id.loginButton);
         buttonForHome.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 navigateToMain();
             }
         });
-
-
-
 
     }
     private void navigateToMain(){
         Intent intent = new Intent(LogInActivity.this, Home.class);
         startActivity(intent);
     }
-
 }
