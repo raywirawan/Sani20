@@ -1,5 +1,6 @@
 package com.nurina.sani20;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +16,6 @@ import android.view.MenuItem;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-//NewChanges
-    //chg12345678
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +29,6 @@ public class Home extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -64,7 +61,6 @@ public class Home extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -75,11 +71,11 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            navigateToHome();
         } else if (id == R.id.nav_profile) {
-
+            navigateToProfile();
         } else if (id == R.id.nav_reminder) {
-
+            navigateToReminder();
         } else if (id == R.id.nav_Price_Tracker) {
 
         } else if (id == R.id.nav_check_rice_price) {
@@ -88,17 +84,33 @@ public class Home extends AppCompatActivity
 
         }
         else if (id == R.id.nav_settings) {
-
+            navigateToSettings();
         }
         else if (id == R.id.nav_help) {
 
         }
         else if (id == R.id.nav_quit) {
-
+            System.exit(0);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void navigateToHome() {
+        Intent intent = new Intent(Home.this, Home.class);
+        startActivity(intent);
+    }
+    public void navigateToReminder() {
+        Intent intent = new Intent(Home.this, ReminderPage.class);
+        startActivity(intent);
+    }
+    public void navigateToProfile() {
+        Intent intent = new Intent(Home.this, ProfilePage.class);
+        startActivity(intent);
+    }
+    public void navigateToSettings() {
+        Intent intent = new Intent(Home.this, SettingsPage.class);
+        startActivity(intent);
     }
 }
