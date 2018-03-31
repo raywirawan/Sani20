@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "162636114149",
+    "firebase_url": "https://sani20account.firebaseio.com",
+    "project_id": "sani20account",
+    "storage_bucket": "sani20account.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162636114149:android:918c2bf2be97eeda",
+        "android_client_info": {
+          "package_name": "com.nurina.sani20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162636114149-t0sekio9plc74nekifu2o4is983od934.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nurina.sani20",
+            "certificate_hash": "7ebf5a302a0ed707355e7f79dfbc0729ff8696bb"
+          }
+        },
+        {
+          "client_id": "162636114149-fga07m9k27n6slpai0aja2aa85vrsn6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmkm0J4ZvQENHQhJ3n3AN0ZCm43JSUTww"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162636114149-fga07m9k27n6slpai0aja2aa85vrsn6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

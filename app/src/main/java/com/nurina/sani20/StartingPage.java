@@ -1,6 +1,7 @@
 package com.nurina.sani20;
 import com.nurina.sani20.R;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,9 +17,11 @@ public class StartingPage extends AppCompatActivity {
 
     private Button buttonForLogIn;
     private Button buttonForSignUp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_starting_page);
         buttonForLogIn= findViewById(R.id.LogInWithSani);
         buttonForLogIn.setOnClickListener(new View.OnClickListener(){
