@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#00563F</color>
     <color name="colorPrimaryDark">#339071</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#BDBDBD</color>
     <color name="btColor">#00563F</color>
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
