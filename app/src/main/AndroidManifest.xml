@@ -31,7 +31,16 @@
             android:name=".Home"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".StartingPage"></activity>
+        <activity android:name=".StartingPage" />
+        <activity
+            android:name=".ReminderPage"
+            android:label="@string/title_activity_reminder_page"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ProfilePage"
+            android:label="@string/title_activity_profile_page"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".SettingsPage"></activity>
     </application>
 
 </manifest>
