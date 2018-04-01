@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BlankFragment">
+    tools:context=".BlankFragment"
+    android:id="@+id/fragmentBlank"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+
+    >
+
+
 
 
     <android.support.v7.widget.CardView
@@ -32,15 +39,18 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:srcCompat="@drawable/ic_weatherimage"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tempIconHome"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_weatherimage"
 
-               />
+
+                />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -54,7 +64,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -65,7 +75,62 @@
                 android:text="31 March 2018"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/weatherIconImageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/location" />
+
+            <ImageView
+                android:id="@+id/tempIconHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@id/temperatureHome"
+                app:layout_constraintStart_toEndOf="@+id/weatherIconImageView"
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                app:srcCompat="@drawable/ic_thermometer" />
+
+            <TextView
+                android:id="@+id/temperatureHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="20 C"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/tempIconHome"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
+
+            <ImageView
+                android:id="@+id/WeatherIconHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@id/Weather"
+                app:layout_constraintStart_toEndOf="@+id/temperatureHome"
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                app:srcCompat="@drawable/ic_forecast" />
+
+            <TextView
+                android:id="@+id/Weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Cloudy"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/WeatherIconHome"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
+
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -74,14 +139,14 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
@@ -93,13 +158,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="Search"
+                android:hint="Type here to search..."
                 android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iconSearch"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
 
@@ -110,21 +175,25 @@
                 android:id="@+id/recView"
                 android:layout_width="352dp"
                 android:layout_height="292dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editText2" />
 
             <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_search_black_24dp"
-                tools:layout_editor_absoluteX="303dp"
-                tools:layout_editor_absoluteY="0dp"
+                android:id="@+id/iconSearch"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/editText2"
-                app:layout_constraintTop_toTopOf="parent"/>
-                "/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search_black_24dp"
+                tools:layout_editor_absoluteX="303dp"
+                tools:layout_editor_absoluteY="0dp" />
+            "/>
 
 
 

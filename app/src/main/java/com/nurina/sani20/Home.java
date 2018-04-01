@@ -41,6 +41,8 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+
         displayFragment(newInstance("", ""));
 
         setTitle("Home");
@@ -93,37 +95,16 @@ public class Home extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
        int id = item.getItemId();
-
-
-        if (id == R.id.nav_home) {
-            navigateToHome();
-        } else if (id == R.id.nav_profile) {
-            navigateToProfile();
-        } else if (id == R.id.nav_reminder) {
-            navigateToReminder();
-        } else if (id == R.id.nav_Price_Tracker) {
-
-        } else if (id == R.id.nav_check_rice_price) {
-
-        } else if (id == R.id.nav_check_seed_price) {
-
-        }
-        else if (id == R.id.nav_settings) {
-            navigateToSettings();
-        }
-        else if (id == R.id.nav_help) {
-
-        }
-        else if (id == R.id.nav_quit) {
-            navigateToStart();
-        }
-
         Fragment fragment = null;
         switch (id) {
             default:
             case R.id.nav_home:
                 fragment = BlankFragment.newInstance("", "");
+                setTitle("Home");
                 break;
+            case R.id.nav_profile:
+                fragment= ProfileFragment.newInstance("", "");
+                setTitle("Profile");
         }
         displayFragment(fragment);
 
@@ -140,7 +121,8 @@ public class Home extends AppCompatActivity
             transaction.commit();
         }
     }
-    public void navigateToHome() {
+
+    public void navigateToHome(){
         Intent intent = new Intent(Home.this, Home.class);
         startActivity(intent);
     }
