@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 
 
-public class BlankFragment extends Fragment {
+public class ProfileFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,11 +25,11 @@ public class BlankFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private RecyclerView homeRecyclerView;
+    private RecyclerView profileRecyclerView;
 
 
 
-    public BlankFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class BlankFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
+     * @return A new instance of fragment ProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BlankFragment newInstance(String param1, String param2) {
-        BlankFragment fragment = new BlankFragment();
+    public static ProfileFragment newInstance(String param1, String param2) {
+        ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,35 +64,27 @@ public class BlankFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false);
-
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
 
-    private ArrayList<Padi> padiArrayList;
+    private ArrayList<ActivityHistory> ActivityHistoryArrayList;
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        homeRecyclerView = view.findViewById(R.id.recView);
+        profileRecyclerView = view.findViewById(R.id.recView);
 
-        padiArrayList = new ArrayList<>();
-        padiArrayList.add(new Padi("Rajalele", "0000", 1));
-        padiArrayList.add(new Padi("Pandan Wangi", "01010", 2));
-        padiArrayList.add(new Padi("Rajalele", "0000", 3));
-        padiArrayList.add(new Padi("Pandan Wangi", "0000", 1));
-        padiArrayList.add(new Padi("Rajalele", "00000", 2));
-        padiArrayList.add(new Padi("Pandan Wangi", "00000", 3));
-        padiArrayList.add(new Padi("Pandan Wangi", "00000", 1));
-        padiArrayList.add(new Padi("Pandan Wangi", "0000", 2));
-        padiArrayList.add(new Padi("Pandan Wangi", "00000", 3));
+        ActivityHistoryArrayList = new ArrayList<>();
+        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
+        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
+        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
+        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
 
-        HomeAdapter homeAdapter = new HomeAdapter(padiArrayList, getContext());
+        ProfileAdapter profileAdapter = new ProfileAdapter(ActivityHistoryArrayList, getContext());
 
-        homeRecyclerView.setAdapter(homeAdapter);
-        homeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        profileRecyclerView.setAdapter(profileAdapter);
+        profileRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
     }
-
-
-
 }
