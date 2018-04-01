@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUpActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -91,11 +92,17 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(getApplicationContext(), "User Successfully Registered", Toast.LENGTH_SHORT).show();
+                    toast("User Successfully Registered");
                     navigateToHome();
                 }
                 else {
-                Toast.makeText(getApplicationContext(), "Error occured, please try again", Toast.LENGTH_SHORT).show();
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException){
+                        toast("Email is already taken");
+                        progressBar.setVisibility(View.GONE);
+                    } else {
+                        toast("Error occured, please try again");
+                        progressBar.setVisibility(View.GONE);
+                    }
                 }
             }
         });
@@ -110,6 +117,10 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
     }
     public void navigateToHome() {
         Intent intent = new Intent(SignUpActivity.this, Home.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+    public void toast(String a){
+        Toast.makeText(getApplicationContext(), a, Toast.LENGTH_SHORT).show();
     }
 }
