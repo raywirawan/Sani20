@@ -24,6 +24,6 @@
         android:layout_alignParentRight="true"
         android:background="@color/md_teal_900"
         android:clickable="true"
-        android:text="Ayo Mulai"
+        android:text="GET STARTED"
         app:srcCompat="@mipmap/ic_launcher_round" />
 </RelativeLayout>
