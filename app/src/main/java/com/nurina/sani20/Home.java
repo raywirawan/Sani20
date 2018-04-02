@@ -21,29 +21,33 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth
+
 import static com.nurina.sani20.BlankFragment.newInstance;
 
-public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        inHome = true;
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View header = ((NavigationView) findViewById(R.id.nav_view)).getHeaderView(0);
+        TextView CurrentUsername = (header.findViewById(R.id.currentuser_id));
+        CurrentUsername.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
+       
+            
         displayFragment(newInstance("", ""));
 
         setTitle("Home");
@@ -51,24 +55,32 @@ public class Home extends AppCompatActivity
 
     }
     private Boolean exit = false;
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public Boolean inHome = true;
     @Override
     public void onBackPressed() {
-        if (exit) {
-            this.finishAffinity(); // finish activity
-        } else {
-            toast("Press Back again to Exit");
-            exit = true;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
+       if (inHome){
+            if (exit) {
+                this.finishAffinity(); // finish activity
+            } else {
+                toast("Press Back again to Exit");
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 3 * 1000);
+            }
+        }else {
+            navigateToHome();
         }
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -97,19 +109,22 @@ public class Home extends AppCompatActivity
             case R.id.nav_home:
                 fragment = BlankFragment.newInstance("", "");
                 setTitle("Home");
+                inHome = false;        
                 break;
             case R.id.nav_profile:
                 fragment= ProfileFragment.newInstance("", "");
                 setTitle("Profile");
+                inHome = false;
                 break;
             case R.id.nav_check_seed_price:
                 fragment= SeedTracker.newInstance("", "");
                 setTitle("Price Tracker");
-
+                inHome = false;
                 break;
             case R.id.nav_check_rice_price:
                 fragment=riceTracker.newInstance("", "");
                 setTitle("Price Tracker");
+                inHome = false;
                 break;
         }
         displayFragment(fragment);
@@ -146,6 +161,7 @@ public class Home extends AppCompatActivity
     }
     public void navigateToStart() {
         Intent intent = new Intent(Home.this, StartingPage.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
     public void toast(String a){
