@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import static com.nurina.sani20.BlankFragment.newInstance;
@@ -67,12 +68,7 @@ public class Home extends AppCompatActivity
             }, 3 * 1000);
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,6 +101,16 @@ public class Home extends AppCompatActivity
             case R.id.nav_profile:
                 fragment= ProfileFragment.newInstance("", "");
                 setTitle("Profile");
+                break;
+            case R.id.nav_check_seed_price:
+                fragment= SeedTracker.newInstance("", "");
+                setTitle("Price Tracker");
+
+                break;
+            case R.id.nav_check_rice_price:
+                fragment=riceTracker.newInstance("", "");
+                setTitle("Price Tracker");
+                break;
         }
         displayFragment(fragment);
 
