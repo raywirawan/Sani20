@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".riceTracker"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/tittleRiceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/beras1"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/riceLayout"
+            app:layout_constraintBottom_toTopOf="@id/lastUpdatedLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <TextView
+                android:id="@+id/riceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RICE"
+                android:textSize="70dp"
+                android:textColor="@color/md_white_1000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/lastUpdatedLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/riceLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+
+            <TextView
+                android:id="@+id/lastUpdated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+
+                android:text="Last updated: "
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/md_white_1000"
+                app:layout_constraintEnd_toStartOf="@id/dateLastUpdatedRice"/>
+
+            <TextView android:id="@+id/dateLastUpdatedRice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/lastUpdated"
+                android:text="MM/DD/YY HH:MM "
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/md_white_1000"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tittleRiceLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/riceSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="23sp"
+                android:ems="10"
+                android:hint="What are you looking for?"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@id/iconSearchRice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recViewRice"
+                android:layout_width="352dp"
+                android:layout_height="292dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/riceSearch" />
+
+            <ImageButton
+                android:id="@+id/iconSearchRice"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/riceSearch"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search_black_24dp"
+                tools:layout_editor_absoluteX="303dp"
+                tools:layout_editor_absoluteY="0dp" />
+            />
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+</android.support.constraint.ConstraintLayout>

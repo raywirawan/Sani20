@@ -20,7 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.ImageButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 import static com.nurina.sani20.BlankFragment.newInstance;
@@ -47,18 +47,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         displayFragment(newInstance("", ""));
-
         setTitle("Home");
-
 
     }
     private Boolean exit = false;
     public Boolean inHome = true;
     @Override
     public void onBackPressed() {
-        if (inHome){
+       if (inHome){
             if (exit) {
                 this.finishAffinity(); // finish activity
             } else {
@@ -116,13 +113,22 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 setTitle("Profile");
                 inHome = false;
                 break;
+            case R.id.nav_check_seed_price:
+                fragment= SeedTracker.newInstance("", "");
+                setTitle("Price Tracker");
+                inHome = false;
+                break;
+            case R.id.nav_check_rice_price:
+                fragment=riceTracker.newInstance("", "");
+                setTitle("Price Tracker");
+                inHome = false;
+                break;
             case R.id.nav_quit:
                 FirebaseAuth.getInstance().signOut();
                 if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     toast("user successfully logged out");
                     navigateToStart();
                 }
-                break;
         }
         displayFragment(fragment);
 
