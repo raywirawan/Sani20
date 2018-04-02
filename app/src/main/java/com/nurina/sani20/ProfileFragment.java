@@ -11,6 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -26,8 +29,6 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView profileRecyclerView;
-
-
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -52,11 +53,12 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate (Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -64,7 +66,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        LayoutInflater infl = getActivity().getLayoutInflater();
+        View view = infl.inflate(R.layout.fragment_profile, container, false);
+        TextView username_Profile = view.findViewById(R.id.usernameProfile);
+        username_Profile.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        return view;
     }
 
 
