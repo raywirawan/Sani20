@@ -3,6 +3,7 @@ import com.nurina.sani20.R;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class StartingPage extends AppCompatActivity {
 
@@ -38,7 +40,23 @@ public class StartingPage extends AppCompatActivity {
             }
         });
     }
+    private Boolean exit = false;
 
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            this.finishAffinity(); // finish activity
+        } else {
+            toast("Press Back again to Exit");
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+        }
+    }
     private void navigateToLogIn(){
         Intent intent = new Intent(StartingPage.this, LogInActivity.class);
         startActivity(intent);
@@ -55,7 +73,9 @@ public class StartingPage extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_starting_page, menu);
         return true;
     }
-
+    public void toast(String a){
+        Toast.makeText(getApplicationContext(), a, Toast.LENGTH_SHORT).show();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

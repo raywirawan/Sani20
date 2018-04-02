@@ -2,6 +2,7 @@ package com.nurina.sani20;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
@@ -33,12 +34,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.loginButton).setOnClickListener(this);
-//        buttonForHome.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                navigateToMain();
-//            }
-//        });
     }
+
     private void navigateToMain(){
         Intent intent = new Intent(LogInActivity.this, Home.class);
         startActivity(intent);
@@ -77,8 +74,10 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     progressBar.setVisibility(View.GONE);
+                    toast("Welcome "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
                     navigateToHome();
                 }else{
+                    progressBar.setVisibility(View.GONE);
                     toast(task.getException().getMessage());
                 }
             }
