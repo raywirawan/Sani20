@@ -117,6 +117,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 setTitle("Price Tracker");
                 inHome = false;
                 break;
+            case R.id.nav_reminder:
+                fragment=ReminderFragment.newInstance("", "");
+                setTitle("Reminder");
+                inHome = false;
+                break;
+            case R.id.nav_forecast:
+                fragment=ForecastFragment.newInstance("", "");
+                setTitle("Forecast");
+                inHome = false;
+                break;
+            case R.id.nav_settings:
+                navigateToSettings();
+                inHome = false;
+                break;
             case R.id.nav_quit:
                 FirebaseAuth.getInstance().signOut();
                 if (FirebaseAuth.getInstance().getCurrentUser() == null) {
@@ -140,24 +154,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
     }
 
-    public void navigateToHome(){
+    public void navigateToHome() {
         Intent intent = new Intent(Home.this, Home.class);
-        startActivity(intent);
-    }
-    public void navigateToReminder() {
-        Intent intent = new Intent(Home.this, ReminderPage.class);
-        startActivity(intent);
-    }
-    public void navigateToProfile() {
-        Intent intent = new Intent(Home.this, ProfilePage.class);
-        startActivity(intent);
-    }
-    public void navigateToSettings() {
-        Intent intent = new Intent(Home.this, SettingsPage.class);
         startActivity(intent);
     }
     public void navigateToStart() {
         Intent intent = new Intent(Home.this, StartingPage.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    public void navigateToSettings() {
+        Intent intent = new Intent(Home.this, SettingsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

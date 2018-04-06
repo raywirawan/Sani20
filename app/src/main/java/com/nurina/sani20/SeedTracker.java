@@ -1,7 +1,5 @@
 package com.nurina.sani20;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -33,9 +39,6 @@ public class SeedTracker extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView SeedTrackerRecyclerView;
-
-
-
     public SeedTracker() {
         // Required empty public constructor
     }
@@ -77,19 +80,32 @@ public class SeedTracker extends Fragment {
     private ArrayList<Seed> seedArrayList;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        SeedTrackerRecyclerView = view.findViewById(R.id.recView);
         seedArrayList=new ArrayList<>();
-        seedArrayList.add(new Seed("Rojolele",10000, "per 5 kilogram"));
-        seedArrayList.add(new Seed("Rojolele",10000, "per 5 kilogram"));
-        seedArrayList.add(new Seed("Rojolele",10000, "per 5 kilogram"));
-        seedArrayList.add(new Seed("Rojolele",10000, "per 5 kilogram"));
-        seedArrayList.add(new Seed("Rojolele",10000, "per 5 kilogram"));
-
+        SeedTrackerRecyclerView = view.findViewById(R.id.recView);
+        seedArrayList.add(new Seed("INPAGO-3SHS","58500"));
+        seedArrayList.add(new Seed("SITU BAGENDIT","60000"));
+        seedArrayList.add(new Seed("INPARI-10","61500"));
+        seedArrayList.add(new Seed("INPARI-1","61850"));
+        seedArrayList.add(new Seed("INPARA-2","69000"));
+        seedArrayList.add(new Seed("INPARI-13","72000"));
+        seedArrayList.add(new Seed("CIHERANG","66500"));
+        seedArrayList.add(new Seed("IR.64","71000"));
+        seedArrayList.add(new Seed("MEKONGGA","70000"));
+        seedArrayList.add(new Seed("SINTANUR","64500"));
+        seedArrayList.add(new Seed("CILAMAYA","63000"));
+        seedArrayList.add(new Seed("CIGEULIS","70500"));
+        seedArrayList.add(new Seed("SL8-SHS","70000"));
+        seedArrayList.add(new Seed("WM4-SHS","68000"));
+        seedArrayList.add(new Seed("BSHS-6H","69000"));
+        seedArrayList.add(new Seed("BSHS-1H","71500"));
+        seedArrayList.add(new Seed("DG1-SHS","75000"));
+        seedArrayList.add(new Seed("DG2-SHS","77000"));
         seedTrackerAdapter SeedTrackerAdapter = new seedTrackerAdapter(seedArrayList, getContext());
 
         SeedTrackerRecyclerView.setAdapter(SeedTrackerAdapter);
         SeedTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-
+    }
+    public void toast(String a){
+        Toast.makeText(getActivity(), a, Toast.LENGTH_SHORT).show();
     }
 }
