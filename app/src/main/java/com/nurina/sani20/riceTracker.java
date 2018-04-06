@@ -72,14 +72,13 @@ public class riceTracker extends Fragment {
 
         riceTrackerRecyclerView = view.findViewById(R.id.recViewRice);
         riceArrayList=new ArrayList<>();
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-
+        riceArrayList.add(new rice(R.drawable.redtriangle,"Ramos IR.64",10777, ""));
+        riceArrayList.add(new rice(R.drawable.redtriangle,"IR.I",11653, ""));
+        riceArrayList.add(new rice(R.drawable.greentriangle,"Setra I",12522, ""));
+        riceArrayList.add(new rice(R.drawable.redtriangle,"IR 42",12504, ""));
+        riceArrayList.add(new rice(R.drawable.greentriangle,"Muncul. I",12245, ""));
+        riceArrayList.add(new rice(R.drawable.redtriangle,"IR.III",9674, ""));
         riceTrackerAdapter riceTrackerAdapter = new riceTrackerAdapter(riceArrayList, getContext());
-
         riceTrackerRecyclerView.setAdapter(riceTrackerAdapter);
         riceTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 

@@ -29,7 +29,8 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView profileRecyclerView;
-
+    private TextView lokasi;
+    private TextView username_Profile;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -68,8 +69,10 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         LayoutInflater infl = getActivity().getLayoutInflater();
         View view = infl.inflate(R.layout.fragment_profile, container, false);
-        TextView username_Profile = view.findViewById(R.id.usernameProfile);
+        username_Profile = view.findViewById(R.id.usernameProfile);
+        lokasi = view.findViewById(R.id.lokasiProfile);
         username_Profile.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        lokasi.setText(ForecastFragment.setloc);
         return view;
     }
 
@@ -85,7 +88,7 @@ public class ProfileFragment extends Fragment {
         ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
         ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
         ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
-        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
+                                ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
 
         ProfileAdapter profileAdapter = new ProfileAdapter(ActivityHistoryArrayList, getContext());
 

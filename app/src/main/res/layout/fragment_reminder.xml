@@ -11,9 +11,11 @@
     >
 
     <android.support.v7.widget.CardView
+
+
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="150dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -26,20 +28,167 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
+            android:layout_height="match_parent"
             >
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text=""
-                android:hint="Insert Seed's Name"
 
+                <EditText
+                    android:id="@+id/insertSeedsName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text=""
+                    android:hint="   Insert Seed's Name"
+                    >
 
-                />
+                </EditText>
+            />
 
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/dateInsertSeedsNameLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/insertSeedsName"
+                tools:layout_editor_absoluteX="-8dp"
+                app:layout_constraintVertical_bias="0.0"
+                >
+
+                <Button
+                    android:id="@+id/submitButtonDates"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="Submit"
+                    android:textColor="@color/md_white_1000"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/datesLayoutReminder" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/datesLayoutReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/datesStartLayoutReminder"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/DateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Date:"
+                        android:textColor="@color/md_black_1000"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/dateReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="DD"
+
+                        android:inputType="number|date"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/DateText" />
+
+                    <EditText
+                        android:id="@+id/monthReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="MM"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@id/dateReminder"
+
+                        app:layout_constraintTop_toBottomOf="@id/DateText" />
+
+                    <EditText
+                        android:id="@+id/yearReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="YYYY"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@id/monthReminder"
+
+                        app:layout_constraintTop_toBottomOf="@id/DateText" />
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/until"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="until"
+                    android:textColor="@color/md_black_1000"
+                    android:textSize="15sp"
+
+                    app:layout_constraintBottom_toTopOf="@id/submitButtonDates"
+                    app:layout_constraintEnd_toStartOf="@+id/datesStartLayoutReminder"
+                    app:layout_constraintStart_toEndOf="@+id/datesLayoutReminder"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/datesStartLayoutReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/Date2Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text=""
+                        android:textColor="@color/md_black_1000"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/dateEndReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="DD"
+                        android:inputType="number|date"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/monthEndReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="MM"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@id/dateEndReminder"
+
+                        app:layout_constraintTop_toBottomOf="@id/Date2Text" />
+
+                    <EditText
+                        android:id="@+id/yearEndReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="YYYY"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@id/monthEndReminder"
+
+                        app:layout_constraintTop_toBottomOf="@id/Date2Text" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 

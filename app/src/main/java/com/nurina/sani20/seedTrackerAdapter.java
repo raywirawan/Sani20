@@ -30,11 +30,10 @@ public class seedTrackerAdapter extends RecyclerView.Adapter<seedTrackerAdapter.
 
     public void onBindViewHolder(@NonNull seedTrackerAdapter.ViewHolder holder, int position) {
 
-
         Seed seed = seedArrayList.get(position);
-        holder.padiType.setText(seed.getPadiType());
-        holder.seedPrice.setText(Integer.toString(seed.getSeedPrice()));
-        holder.seedPerBerapa.setText(seed.getSeedPerBerapa());
+        holder.padiType.setText(seed.getNama());
+        holder.seedPrice.setText(seed.getHarga());
+        holder.seedPerBerapa.setText("per kilogram");
 
     }
     public int getItemCount() {
@@ -50,8 +49,7 @@ public class seedTrackerAdapter extends RecyclerView.Adapter<seedTrackerAdapter.
             super(itemView);
             padiType= itemView.findViewById(R.id.padiType);
             seedPrice = itemView.findViewById(R.id.seedPrice);
-            seedPerBerapa= itemView.findViewById(R.id.seedPerBerapa)
-            ;
+            seedPerBerapa= itemView.findViewById(R.id.seedPerBerapa);
         }
     }}
 

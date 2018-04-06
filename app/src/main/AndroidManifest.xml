@@ -4,8 +4,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/sani"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -33,14 +35,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".StartingPage" />
         <activity
-            android:name=".ReminderPage"
-            android:label="@string/title_activity_reminder_page"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".ProfilePage"
             android:label="@string/title_activity_profile_page"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SettingsPage"></activity>
+        <activity android:name=".SettingsActivity"
+            android:theme="@style/AppTheme"
+            android:label="Settings"/>
     </application>
 
 </manifest>
