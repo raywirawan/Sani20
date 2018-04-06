@@ -51,8 +51,9 @@
 
             <TextView
                 android:id="@+id/location"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18.7sp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -65,7 +66,8 @@
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
+                android:textSize="18.7sp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -76,59 +78,72 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/weatherIconImageView"
                 app:layout_constraintTop_toBottomOf="@+id/location" />
-
-            <ImageView
-                android:id="@+id/tempIconHome"
+            <android.support.constraint.ConstraintLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toStartOf="@id/temperatureHome"
-                app:layout_constraintStart_toEndOf="@+id/weatherIconImageView"
                 app:layout_constraintTop_toBottomOf="@+id/date"
-                app:srcCompat="@drawable/ic_thermometer" />
+                app:layout_constraintStart_toEndOf="@id/weatherIconImageView"
+               app:layout_constraintEnd_toEndOf="parent"
+                >
 
-            <TextView
-                android:id="@+id/temperatureHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="20 C"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/tempIconHome"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
+                <ImageView
+                    android:id="@+id/tempIconHome"
+                    android:layout_width="8.4dp"
+                    android:layout_height="25.1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
 
-            <ImageView
-                android:id="@+id/WeatherIconHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toStartOf="@id/Weather"
-                app:layout_constraintStart_toEndOf="@+id/temperatureHome"
-                app:layout_constraintTop_toBottomOf="@+id/date"
-                app:srcCompat="@drawable/ic_forecast" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/temperatureHome"
 
-            <TextView
-                android:id="@+id/Weather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Cloudy"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/WeatherIconHome"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@drawable/logobarutemp" />
+
+                <TextView
+                    android:id="@+id/temperatureHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="20°C"
+                    android:textSize="18.4sp"
+                    app:layout_constraintStart_toEndOf="@+id/tempIconHome"
+                     />
+
+                <ImageView
+                    android:id="@+id/WeatherIconHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+
+                    app:layout_constraintStart_toEndOf="@+id/temperatureHome"
+
+                    app:srcCompat="@drawable/ic_forecast" />
+
+                <TextView
+                    android:id="@+id/Weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Cloudy"
+                    android:textSize="18.4sp"
+
+                    app:layout_constraintStart_toEndOf="@+id/WeatherIconHome"
+                    app:layout_constraintTop_toBottomOf="@+id/date" />
+
+
+</android.support.constraint.ConstraintLayout>
+
 
 
         </android.support.constraint.ConstraintLayout>

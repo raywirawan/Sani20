@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+
+        >
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/closeTextLayout"
+                android:layout_marginTop="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_background">
+                <ImageButton
+                    android:background="@drawable/circle_background"
+                    android:id="@+id/exitDialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@color/md_white_1000"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    />
+
+
+
+            </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/sanisTipsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sanisTips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Sani's Tips"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_black_1000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <View
+                    android:layout_width="365dp"
+                    android:layout_height="1dp"
+                    android:background="@color/md_black_1000"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sanisTips"
+
+
+                    >
+
+                </View>
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/sanisTipsLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="20dp"
+                >
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/tipsLayout"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+
+                        android:id="@+id/tips"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@color/md_black_1000"
+                        android:layout_marginStart="10dp"
+                        android:text="Lorem ipsum dolor sit amet consectur adispicing elit, sed do eiusmod tempr lalala hey yoa quis extertcitation ulamca laboris"
+
+
+                        />
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/getMoreRandomTips"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tips"
+
+                        android:background="@drawable/rounded_button"
+                        android:text="Get More Random Tips"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        android:textColor="@color/md_white_1000"
+                        android:layout_marginTop="25dp"
+
+                        />
+                    <Button
+                        android:id="@+id/ThankYou"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/getMoreRandomTips"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:background="@drawable/rounded_button"
+                        android:text="Thank You !"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        android:textColor="@color/md_white_1000"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginBottom="10dp"
+
+                        />
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    app:layout_constraintStart_toEndOf="@id/tipsLayout"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/sani_abu"
+
+                        />
+                </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForecastFragment">
+    tools:context=".ForecastFragment"
+    android:background="@drawable/forecast_night_background"
+    android:id="@+id/layoutForecast"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recViewWeeklyForecast"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/tempsAndDates"
         >
 
@@ -20,7 +23,9 @@
 
     </android.support.v7.widget.RecyclerView>
 
+
     <Button
+        android:id="@+id/getRandomTips"
         android:layout_width="200dp"
         android:layout_height="45dp"
         app:layout_constraintTop_toBottomOf="@+id/recViewWeeklyForecast"
@@ -30,14 +35,7 @@
         android:background="@drawable/rounded_button"
         android:text="Get random tips"
         android:textColor="@color/md_white_1000"
-        android:layout_marginTop="14dp"
-
-        />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/forecast_night_background"
+        android:layout_marginTop="11dp"
 
         />
     <TextView
@@ -45,21 +43,21 @@
         android:layout_width="wrap_content"
         android:textColor="@color/md_white_1000"
         android:layout_height="wrap_content"
-        android:text="Malang, Jawa Timur"
+        android:text="updating..."
         android:textSize="18dp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/weatherImageForecast"
+
         />
     <ImageView
         android:id="@+id/weatherImageForecast"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         app:srcCompat="@drawable/ic_weatherimage"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintTop_toTopOf="@id/forecastLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -88,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/md_white_1000"
-        android:text="20 "
+        android:text="20°"
         android:textSize="70sp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +99,7 @@
         android:layout_width="wrap_content"
         android:textColor="@color/md_white_1000"
         android:layout_height="wrap_content"
-        android:text="Cloudy"
+        android:text="updating..."
         android:textSize="15sp"
         android:layout_marginTop="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="March"
                 app:layout_constraintTop_toBottomOf="@+id/dayForecast"
-                android:textSize="20dp"
+                android:textSize="26dp"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/dateForecast"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -159,17 +157,18 @@
                 >
 
             </TextView>
+
             <TextView
                 android:id="@+id/yearForecast"
                 android:layout_width="wrap_content"
-                android:textColor="@color/md_white_1000"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="2018"
-                app:layout_constraintTop_toBottomOf="@+id/dayForecast"
+                android:textColor="@color/md_white_1000"
                 android:textSize="25dp"
-                app:layout_constraintStart_toEndOf="@id/monthForecast"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/monthForecast"
+                app:layout_constraintTop_toBottomOf="@+id/dayForecast"
 
 
                 ></TextView>

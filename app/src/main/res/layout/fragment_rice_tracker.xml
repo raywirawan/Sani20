@@ -112,7 +112,7 @@
 
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:textSize="23sp"
+                android:textSize="18.5sp"
                 android:ems="10"
                 android:hint="What are you looking for?"
                 android:inputType="textPersonName"

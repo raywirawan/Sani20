@@ -86,12 +86,14 @@
 
             app:layout_constraintEnd_toEndOf="parent">
             <ImageView
-                android:layout_marginTop="10dp"
-                android:id="@+id/triangleParameterSeed"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/triangleParameterRice"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/redtriangle"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                  />
         </android.support.constraint.ConstraintLayout>
 

@@ -11,9 +11,9 @@
         android:id="@+id/backgroundProfile"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/awan">
+        android:background="@drawable/ic_awanprofilenew2">
     </ImageView>
-    
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profilePic"
             android:layout_marginTop="12dp"
@@ -38,66 +38,64 @@
         app:layout_constraintTop_toBottomOf="@id/profilePic"
         
         />
+
     <TextView
         android:id="@+id/lokasiProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="Malang, Jawa Timur"
         android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/locationIconProfile"
-        app:layout_constraintTop_toBottomOf="@id/usernameProfile"
 
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/usernameProfile" />
 
     <ImageView
         android:id="@+id/locationIconProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@id/lokasiProfile"
         app:layout_constraintTop_toBottomOf="@+id/usernameProfile"
-        app:srcCompat="@drawable/ic_location_on_black_24dp"
+
+        app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
 
-        />
-
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundProfile">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundProfile">
 
 
         <TextView
             android:id="@+id/textActivity"
-            android:text=" Activity"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:textSize="26dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text=" Activity"
+            android:textColor="#000"
+            android:textSize="26dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
 
             />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recView"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recView"
 
-                android:layout_marginTop="8dp"
-                android:layout_width="352dp"
-                android:layout_height="292dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textActivity" />
+            android:layout_width="352dp"
+            android:layout_height="292dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textActivity" />
     </android.support.constraint.ConstraintLayout>
 
 
