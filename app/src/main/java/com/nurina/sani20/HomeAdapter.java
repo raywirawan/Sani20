@@ -34,8 +34,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         Padi padi = padiArrayList.get(position);
         holder.namaPadiTextView.setText(padi.getNama());
-        holder.tipePadiTextView.setText(padi.getTipe());
-        holder.progressBar.setProgress(padi.getNilai());
+        holder.tipePadiTextView.setText(padi.getDayRemaining());
+        holder.progressBar.setProgress(padi.getProgress());
 
     }
 

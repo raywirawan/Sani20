@@ -103,49 +103,19 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/riceSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
 
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textSize="23sp"
-                android:ems="10"
-                android:hint="What are you looking for?"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@id/iconSearchRice"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-
-
-                />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recViewRice"
                 android:layout_width="352dp"
-                android:layout_height="292dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/riceSearch" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
-            <ImageButton
-                android:id="@+id/iconSearchRice"
-                android:layout_width="39dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/riceSearch"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_search_black_24dp"
-                tools:layout_editor_absoluteX="303dp"
-                tools:layout_editor_absoluteY="0dp" />
+
             />
 
 

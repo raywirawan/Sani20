@@ -2,39 +2,33 @@ package com.nurina.sani20;
 
 public class rice {
 
-        private String riceType;
-        private int ricePrice;
-        private String ricePerBerapa;
+    private String nama;
+    private int harga;
 
-        public rice(String riceType, int ricePrice, String ricePerBerapa) {
-            this.riceType = riceType;
-            this.ricePrice = ricePrice;
-            this.ricePerBerapa = ricePerBerapa;
-        }
+    public rice() {
 
-        public String getRiceType() {
-            return riceType;
-        }
-
-        public void setRiceType(String riceType) {
-            this.riceType = riceType;
-        }
-
-        public int getRicePrice() {
-            return ricePrice;
-        }
-
-        public void setRicePrice(int ricePrice) {
-            this.ricePrice = ricePrice;
-        }
-
-        public String getRicePerBerapa() {
-            return ricePerBerapa;
-        }
-
-        public void setRicePerBerapa(String ricePerBerapa) {
-            this.ricePerBerapa = ricePerBerapa;
-        }
     }
+
+    public rice(int h, String riceType, int ricePrice, String ricePerBerapa) {
+        this.nama = riceType;
+        this.harga = ricePrice;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
+    }
+}
 
 

@@ -11,9 +11,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
 
 
 public class riceTracker extends Fragment {
@@ -66,22 +75,50 @@ public class riceTracker extends Fragment {
         return inflater.inflate(R.layout.fragment_rice_tracker, container, false);
     }
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        databaseHargaBeras.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (riceArrayList != null) {
+                    riceArrayList.clear();
+                }
+
+                riceArrayList=new ArrayList<>();
+                for (DataSnapshot riceSnapshot : dataSnapshot.getChildren()){
+                    rice Rice = riceSnapshot.getValue(rice.class);
+                    riceArrayList.add(Rice);
+                }
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy hh:mm");
+                String formattedTime = sdf.format(calendar.getTime());
+                dateRefresh = view2.findViewById(R.id.dateLastUpdatedRice);
+                dateRefresh.setText(formattedTime);
+                riceTrackerRecyclerView = view2.findViewById(R.id.recViewRice);
+                riceTrackerAdapter riceTrackerAdapter = new riceTrackerAdapter(riceArrayList, getContext());
+                riceTrackerRecyclerView.setAdapter(riceTrackerAdapter);
+                riceTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                toast("error getting data");
+            }
+        });
+    }
+    private TextView dateRefresh;
+    DatabaseReference databaseHargaBeras;
+    private View view2;
     private ArrayList<rice> riceArrayList;
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        databaseHargaBeras = FirebaseDatabase.getInstance().getReference("HargaBeras");
+        view2 = view;
 
-        riceTrackerRecyclerView = view.findViewById(R.id.recViewRice);
-        riceArrayList=new ArrayList<>();
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-        riceArrayList.add(new rice("Rojolele",10000, "per 5 kilogram"));
-
-        riceTrackerAdapter riceTrackerAdapter = new riceTrackerAdapter(riceArrayList, getContext());
-
-        riceTrackerRecyclerView.setAdapter(riceTrackerAdapter);
-        riceTrackerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-
+    }
+    public void toast(String a){
+        Toast.makeText(getActivity(), a, Toast.LENGTH_SHORT).show();
     }
 }

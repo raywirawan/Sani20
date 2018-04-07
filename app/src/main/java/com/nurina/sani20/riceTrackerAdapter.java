@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,9 +33,10 @@ public class riceTrackerAdapter extends RecyclerView.Adapter<com.nurina.sani20.r
 
 
             rice Rice = riceArrayList.get(position);
-            holder.riceType.setText(Rice.getRiceType());
-            holder.ricePrice.setText(Integer.toString(Rice.getRicePrice()));
-            holder.ricePerBerapa.setText(Rice.getRicePerBerapa());
+            holder.riceType.setText(Rice.getNama());
+            holder.ricePrice.setText(Integer.toString(Rice.getHarga()));
+            holder.ricePerBerapa.setText("per kilogram");
+//            holder.naikturunHarga.setImageResource(Rice.getIdIconHarga());
 
         }
         public int getItemCount() {
@@ -45,13 +47,14 @@ public class riceTrackerAdapter extends RecyclerView.Adapter<com.nurina.sani20.r
             public TextView riceType;
             public TextView ricePrice;
             public TextView ricePerBerapa;
+            public ImageView naikturunHarga;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 riceType= itemView.findViewById(R.id.riceType);
                 ricePrice = itemView.findViewById(R.id.ricePrice);
-                ricePerBerapa= itemView.findViewById(R.id.ricePerBerapa)
-                ;
+                ricePerBerapa= itemView.findViewById(R.id.ricePerBerapa);
+                naikturunHarga = itemView.findViewById(R.id.triangleParameterRice);
             }
         }
 

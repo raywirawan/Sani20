@@ -12,11 +12,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class ProfileFragment extends Fragment {
@@ -29,7 +39,8 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView profileRecyclerView;
-
+    private TextView lokasi;
+    private TextView username_Profile;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -68,29 +79,73 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         LayoutInflater infl = getActivity().getLayoutInflater();
         View view = infl.inflate(R.layout.fragment_profile, container, false);
-        TextView username_Profile = view.findViewById(R.id.usernameProfile);
+        username_Profile = view.findViewById(R.id.usernameProfile);
+        lokasi = view.findViewById(R.id.lokasiProfile);
         username_Profile.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        lokasi.setText(ForecastFragment.setloc);
         return view;
     }
 
+    public void onStart() {
+        super.onStart();
+        String uid = mAuth.getCurrentUser().getUid();
+        databaseReminder.child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (padiArrayList != null) {
+                    padiArrayList.clear();
+                }
+                padiArrayList = new ArrayList<>();
+                ActivityHistoryArrayList = new ArrayList<>();
+                for (DataSnapshot reminderSnapshot : dataSnapshot.getChildren()) {
+                    Padi padi = reminderSnapshot.getValue(Padi.class);
+                    String name = padi.getNama();
+                    String start = padi.getDateStart();
+                    String end = padi.getDateEnd();
+                    String id = padi.getId();
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat format = new SimpleDateFormat("d M yyyy");
+                    Date startdate = calendar.getTime();
+                    try {
+                        startdate = format.parse(start);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        toast("error parsing date");
+                    }
+                    SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd MMMM YYYY");
+                    String formattedDate = sdf.format(startdate);
+                    String[] dateExtract = formattedDate.split(" ");
+                    String dayName = dateExtract[0];
+                    String compdate = dateExtract[1]+" "+dateExtract[2]+" "+dateExtract[3];
+                    ActivityHistoryArrayList.add(new ActivityHistory(dayName, "Menanam padi jenis "+name, compdate));
+                }
+                profileRecyclerView = view2.findViewById(R.id.recView);
+                ProfileAdapter profileAdapter = new ProfileAdapter(ActivityHistoryArrayList, getContext());
 
+                profileRecyclerView.setAdapter(profileAdapter);
+                profileRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                toast("error getting data");
+            }
+        });
+    }
+    DatabaseReference databaseReminder;
+    private FirebaseAuth mAuth;
+    private View view2;
+    private ArrayList<Padi> padiArrayList;
     private ArrayList<ActivityHistory> ActivityHistoryArrayList;
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        databaseReminder = FirebaseDatabase.getInstance().getReference("Reminder");
+        mAuth = FirebaseAuth.getInstance();
+        view2 = view;
+    }
 
-        profileRecyclerView = view.findViewById(R.id.recView);
-
-        ActivityHistoryArrayList = new ArrayList<>();
-        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
-        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
-        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
-        ActivityHistoryArrayList.add(new ActivityHistory("Yesterday", "Menanam padi jenis H-13", "Wednesday, 28 March 2018"));
-
-        ProfileAdapter profileAdapter = new ProfileAdapter(ActivityHistoryArrayList, getContext());
-
-        profileRecyclerView.setAdapter(profileAdapter);
-        profileRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-
+    public void toast(String a){
+        Toast.makeText(getActivity(), a, Toast.LENGTH_SHORT).show();
     }
 }

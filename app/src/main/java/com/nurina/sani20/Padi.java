@@ -1,17 +1,49 @@
 package com.nurina.sani20;
 
+import java.util.Date;
+
 public class Padi {
 
-
+        private String id;
         private String nama;
-        private String tipe;
-        private int nilai;
+        private String dateStart;
+        private String dateEnd;
+        private String dayRemaining;
+        private int progress;
 
-        public Padi(String nama, String tipe, int nilai) {
-            this.nama = nama;
-            this.tipe = tipe;
-            this.nilai = nilai;
+        public Padi (){
+
         }
+
+        public Padi(String id, String nama, String dateStart, String dateEnd, String dayRemaining   , int progress) {
+            this.id = id;
+            this.nama = nama;
+            this.dateStart = dateStart;
+            this.dateEnd = dateEnd;
+            this.dayRemaining = dayRemaining;
+            this.progress = progress;
+        }
+
+
+        public int getProgress() {
+                return progress;
+        }
+
+        public void setProgress(int progress) {
+            this.progress = progress;
+        }
+
+        public String getDayRemaining() {
+            return dayRemaining;
+        }
+
+        public void setDayRemaining(String dayRemaining) {
+            this.dayRemaining = dayRemaining;
+        }
+
+        public Padi(String nama) {
+                this.nama = nama;
+            }
 
         public String getNama() {
             return nama;
@@ -21,20 +53,27 @@ public class Padi {
             this.nama = nama;
         }
 
-        public String getTipe() {
-            return tipe;
+        public void setDateStart(String dateStart) {
+            this.dateStart = dateStart;
+        }
+        public String getDateStart() {
+            return dateStart;
         }
 
-        public void setTipe(String tipe) {
-            this.tipe = tipe;
+        public String getDateEnd() {
+            return dateEnd;
         }
 
-        public int getNilai() {
-            return nilai;
+        public void setDateEnd(String dateEnd) {
+            this.dateEnd = dateEnd;
         }
 
-        public void setNilai(int nilai) {
-            this.nilai = nilai;
+        public String getId() {
+            return id;
         }
-    }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+}
 
